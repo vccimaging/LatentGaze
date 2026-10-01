@@ -3,9 +3,9 @@ Source code, data and hardware design for paper 'Low Latency Gaze Tracking via L
 
 ### Hardware Configuration
 
-**Microlens array**: (hardware/micro_lens)
+**Microlens array**: [micro_lens](hardware/micro_lens)
 
-**Chromium mask**: (hardware/mask.gds)
+**Chromium mask**: [mask.gds](hardware/mask.gds)
 
 **PCB design**: Coming soon.
 
