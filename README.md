@@ -7,7 +7,7 @@ Source code, data and hardware design for paper 'Low Latency Gaze Tracking via L
 
 **Chromium mask**: [mask.gds](hardware/mask.gds)
 
-**PCB design**: Coming soon.
+**PCB design**: [circuit](hardware/circuit)
 
 
 Code and data is coming soon...
