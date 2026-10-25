@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "latentgaze"
+version = "1.0.0"
+description = "Low Latency Gaze Tracking via Latent Optical Sensing — training and evaluation code"
+readme = "README.md"
+authors = [
+  { name = "Yidan Zheng" }, { name = "Matheus Souza" }, { name = "Kaizhang Kang" },
+  { name = "Qiang Fu" }, { name = "Hadi Amata" }, { name = "Wolfgang Heidrich" },
+]
+license = { file = "LICENSE-SOFTWARE" }
+requires-python = ">=3.9"
+
+[project.urls]
+Paper = "https://arxiv.org/abs/2605.17990"
+
+[tool.setuptools.packages.find]
+include = ["latentgaze*"]

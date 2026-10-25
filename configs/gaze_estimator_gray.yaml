@@ -1,0 +1,35 @@
+# Grayscale gaze estimator E (EfficientNet-B0). Released weights: gaze_estimator_gray.pt.
+name: gaze_estimator_gray
+output_dir: runs
+seed: 666
+
+data:
+  train_lmdb: data/lmdb/train_combined_lmdb
+  test_lmdb: data/lmdb/test_lmdb
+  grayscale: true
+  normalization: imagenet
+  augment: true
+  aug_prob: 0.5
+  translate: 16
+  aperture: true
+
+model:
+  arch: efficientnet_b0
+  in_channels: 1
+  pretrained: true
+  dropout: 0.0
+  image_size: 256
+
+train:
+  batch_size: 32
+  test_batch_size: 64
+  max_iters: 192120
+  lr: 1.0e-4
+  weight_decay: 3.0e-3
+  scheduler: onecycle
+  pct_start: 0.05
+  alpha_valid: 0.01
+  num_workers: 8
+  log_every: 500
+  eval_every: 6404
+  save_every: 6404

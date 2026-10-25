@@ -1,0 +1,25 @@
+# Tested with Python 3.9, PyTorch 1.12.1 + CUDA 11.3; constraints.txt pins the versions behind the verified
+# results (newer versions are expected to work, with small numerical differences).
+torch>=1.12
+torchvision>=0.13
+numpy>=1.22,<2
+scipy
+scikit-image
+scikit-learn
+opencv-python
+pillow
+lmdb<3
+pyyaml
+matplotlib
+accelerate>=0.22
+efficientnet_pytorch==0.7.1
+timm>=1.0          # DINOv2 loss (colour steering only)
+lpips              # LPIPS metric of the steering evaluation
+pytest             # unit tests
+# StyleGAN2-ADA (third_party): custom CUDA ops are compiled at run time with ninja
+click
+requests
+psutil
+tqdm
+ninja
+# optional: fvcore (decoder FLOP count in scripts/evaluate.py --profile)

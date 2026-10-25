@@ -1,0 +1,15 @@
+# Versions behind the verified results (Python 3.9.12, CUDA 11.3 build of PyTorch, NVIDIA A100):
+#   pip install -r requirements.txt -c constraints.txt --extra-index-url https://download.pytorch.org/whl/cu113
+# They pin what changes the numbers: tensor kernels, image decoding and resizing, and the image metrics.
+torch==1.12.1
+torchvision==0.13.1
+numpy==1.26.4
+pillow==9.2.0
+opencv-python==4.6.0.66
+scikit-image==0.19.3
+lmdb==1.6.2
+lpips==0.1.4
+accelerate==0.22.0
+timm==1.0.24
+efficientnet_pytorch==0.7.1
+pytest==7.1.2

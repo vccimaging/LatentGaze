@@ -1,0 +1,51 @@
+# 16 binary optical masks + measurement decoder P (Sec. 3.1). Released weights: masks_decoder.pt.
+name: masks_decoder
+output_dir: runs
+seed: 0
+teacher: weights/inversion_teacher.pt
+init_heads_from_teacher: true
+
+data:
+  train_lmdb: data/lmdb/train_combined_lmdb
+  test_lmdb: data/lmdb/test_lmdb
+  grayscale: true
+  normalization: gan
+  augment: true
+  aug_prob: 0.5
+  translate: 16
+  aperture: true
+
+optical_encoder:
+  num_masks: 16
+  param_size: 64
+  image_size: 256
+
+decoder:
+  num_measurements: 16
+  width: 256
+  depth: 2
+  dropout: 0.2
+
+loss:
+  gaze: 1.0
+  valid: 1.0e-3
+  distill_gaze: 0.5
+  distill_feat: 0.1
+
+train:
+  batch_size: 128
+  test_batch_size: 64
+  max_iters: 100000
+  lr_decoder: 1.0e-4
+  wd_decoder: 1.0e-2
+  lr_masks: 1.0e-3
+  wd_masks: 0.0
+  scheduler: plateau_linear
+  scheduler_args:
+    warmup: 0.02
+  grad_clip: 0.0
+  input_noise: 0.01
+  num_workers: 8
+  log_every: 2000
+  eval_every: 2000
+  save_every: 10000

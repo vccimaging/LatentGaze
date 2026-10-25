@@ -1,0 +1,23 @@
+# Colour W+ gaze steering with identity code (Sec. 5.2). Released weights: steering_wplus_identity_rgb.pt.
+_base_: steering_gray.yaml
+name: steering_rgb
+generator: weights/stylegan2_rgb512.pkl
+inversion: weights/inversion_wplus_rgb.pt
+gaze_estimator: weights/gaze_estimator_rgb_resnet18.pt
+
+data:
+  grayscale: false
+  translate: 0
+  aperture: false
+  centre_crop: false
+
+model:
+  type: wplus_identity
+  latent_dim: 512
+  num_ws: 16
+  identity_dim: 64
+
+loss:
+  perceptual: 0.1
+  identity: 0.1
+  dino: 0.1

@@ -1,0 +1,36 @@
+# Colour gaze estimator (ResNet-18). Released weights: gaze_estimator_rgb_resnet18.pt.
+name: gaze_estimator_rgb
+output_dir: runs
+seed: 666
+
+data:
+  train_lmdb: data/lmdb/train_combined_lmdb
+  test_lmdb: data/lmdb/test_lmdb
+  grayscale: false
+  normalization: imagenet
+  augment: true
+  aug_prob: 0.5
+  translate: 0
+  aperture: false
+  centre_crop: false
+
+model:
+  arch: resnet18
+  in_channels: 3
+  pretrained: false
+  dropout: 0.1
+  image_size: 256
+
+train:
+  batch_size: 256
+  test_batch_size: 64
+  max_iters: 100000
+  lr: 5.0e-4
+  weight_decay: 1.0e-2
+  scheduler: onecycle
+  pct_start: 0.02
+  alpha_valid: 0.01
+  num_workers: 8
+  log_every: 500
+  eval_every: 2000
+  save_every: 10000

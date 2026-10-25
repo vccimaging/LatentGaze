@@ -1,0 +1,18 @@
+# Colour W+ inversion encoder, 2 GPUs. Released weights: inversion_wplus_rgb.pt.
+_base_: inversion_gray.yaml
+name: inversion_rgb
+init_checkpoint: weights/inversion_teacher.pt
+generator: weights/stylegan2_rgb512.pkl
+gaze_estimator: weights/gaze_estimator_rgb_resnet18.pt
+
+data:
+  grayscale: false
+  translate: 0
+  aperture: false
+  centre_crop: false
+
+model:
+  type: wplus
+  in_channels: 3
+  latent_dim: 512
+  num_ws: 16

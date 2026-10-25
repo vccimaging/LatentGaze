@@ -1,0 +1,21 @@
+# Per-subject calibration of the decoder on the prototype recordings (Sec. 5.3).
+checkpoint: weights/masks_decoder.pt
+output_dir: runs/calibration
+device: auto                  # cuda if available, else cpu
+seed: 42
+save_models: false
+
+data:
+  root: data/human
+  subjects: all               # or a list of ids, e.g. [3]
+
+budgets: [9, 12, 15, 18, 21]  # calibration points K per subject
+
+calibration:
+  epochs: 3500
+  lr: 1.0e-4
+  weight_decay: 0.5
+  grad_clip: 0.05
+  batch_size: 16
+  eval_every: 50
+  keep_best: true
