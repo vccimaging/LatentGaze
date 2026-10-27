@@ -110,8 +110,17 @@ Use the subjects listed in `data/splits/train.csv` and `data/splits/test.csv`.
 
 <a id="release-status"></a>
 
-Prepare normalized eye crops of 576 × 576 pixels covering 45 × 45 mm. The crop-extraction
-script is not included. Arrange the crops and gaze labels as:
+Prepare normalized eye crops of 576 × 576 pixels covering 45 × 45 mm. We provide a script to automatically extract these crops based on the provided splits:
+
+```bash
+# Extract normalized crops
+python scripts/data/prepare_ethxgaze.py \
+    --raw-dir /path/to/raw/ETH-XGaze \
+    --splits-dir data/splits \
+    --output-dir data/crops
+```
+
+This will arrange the crops and gaze labels as:
 
 ```text
 data/crops/<subject>/<frame>/<camera>_{r,l}.JPG
